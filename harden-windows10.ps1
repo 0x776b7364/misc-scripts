@@ -3,6 +3,7 @@
 # Primary Author: Disassembler <disassembler@dasm.cz>
 # Original Version: 1.4, 2016-01-16
 # Tweaked based on personal preferences for @alirobe 2016-03-23 - v1.4.1
+# https://gist.github.com/alirobe/7f3b34ad89a159e6daa1
 # NOTE: MAKE SURE YOU READ THIS SCRIPT CAREFULLY BEFORE RUNNING IT + ADJUST COMMENTING AS APPROPRIATE
 #       This script will reboot your machine when completed.
 ##########
