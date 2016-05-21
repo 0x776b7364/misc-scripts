@@ -1,10 +1,13 @@
 #!/bin/sh -e
 set -x
+
+alias sudo=
+
 # Local customization
 uid=1000
 gid=1000
 arch=amd64
-release=squeeze
+release=jessie
 
 # Default values
 # $1 d-i iso image file

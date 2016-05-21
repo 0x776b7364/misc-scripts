@@ -1,5 +1,7 @@
 #!/bin/sh -e
 
+alias sudo=
+
 # Local customization to match your id (check with 'id' command).
 uid=1000
 gid=1000
