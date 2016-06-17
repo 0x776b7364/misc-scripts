@@ -37,6 +37,7 @@ read -p "Press [Enter] key to continue."
 passenger-install-apache2-module
 
 echo "[*] Apache VHOST Configuration …"
+echo >> /etc/apache2/apache2.conf
 echo "Include pf.conf" >> /etc/apache2/apache2.conf
 
 apt-get install -y libmysqlclient-dev
