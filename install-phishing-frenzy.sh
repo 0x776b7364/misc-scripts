@@ -43,11 +43,13 @@ echo "Include pf.conf" >> /etc/apache2/apache2.conf
 apt-get install -y libmysqlclient-dev
 touch /etc/apache2/pf.conf
 
+PASSENGERDIR=$(ls -1 -d $GEM_HOME/gems/passenger*)
+
 # 'PassengerRoot' and 'PassengerRuby' values should follow the ones in apache2.conf
 cat > /etc/apache2/pf.conf << EOL
   <IfModule mod_passenger.c>
-    PassengerRoot /usr/local/rvm/gems/ruby-2.1.5/gems/passenger-5.0.26
-    PassengerRuby /usr/local/rvm/gems/ruby-2.1.5/wrappers/ruby
+    PassengerRoot $PASSENGERDIR
+    PassengerRuby $GEM_HOME/wrappers/ruby
   </IfModule>
 
   <VirtualHost *:80>
