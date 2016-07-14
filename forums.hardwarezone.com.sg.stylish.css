@@ -1,0 +1,97 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document domain("forums.hardwarezone.com.sg") {
+    /* toolbar at the top */
+    #floating-toolbar,
+
+    /* whitespace behind floating-toolbar */
+    .clear,
+
+    /* iframe preventing clicking on breadcrumbs */
+    #floating-toolbar + iframe,
+
+    /* HWZ logo + ad */
+    #masthead,
+
+    /* nondescript black bar below masthead */
+    #header,
+
+    /* ads on the RHS */
+    #right-ads,
+
+    /* facebook stuff next to subforum/thread title */
+    #hwz-facebook-page-like,
+
+    /* Qoo10 nonsense */
+    #hwz_qoo10_widget,
+
+    /* ad between "Sub-Forums" and "Threads in Forum" */
+    #outbrain_widget_0,
+
+    /* announcement threads */
+    .hwz-announcement,
+
+    /* "View All Announcements" */
+    #aTrCell_,
+
+    /* hides Display Options + Moderators in subforum view; does nothing in thread view */
+    #forum > form: nth-of-type(2) > table,
+
+    /* hides Forum Advisory in subforum view; side effect of hiding Post Reply button in thread view */
+    #forum > table: nth-of-type(4),
+
+    /* hides thread icon legends in subforum view; hides forum advisory in thread view */
+    #forum > table: nth-of-type(5),
+
+    /* hides Posting Rules + Forum Jump in subforum view; hides table id="ajax_post_errors" in thread view (..?) */
+    #forum > table: nth-of-type(6),
+
+    /* does nothing in subforum view; hides Posting Rules + Forum Jump in thread view */
+    #forum > table: nth-of-type(7),
+
+    /* FB and Twitter share buttons in thread view */
+    .hwz-social-container,
+
+    /* Sponsored Links, located above footer */
+    #sponsored-links,
+
+    /* crowdynews */
+    .hwz_crowdynews_container,
+
+    /* gigantic HWZ footer */
+    #footer,
+
+    /* vBulletin footer */
+    #vbfooter,
+
+    /* Gimme widget */
+    #gimmie-widget-bar 
+    {
+        display: none;
+    }
+    /* DEPRECATED: ad between Posting Rules and bottom feed
+    div[align="center"][style="width:730px; clear:both;"], 
+    /* DEPRECATED: bottom feed + ad 
+    div[style="width:960px; height:300px; margin:20px auto; padding:10px 0; border:1px solid #ccc; border-width:1px 0;"], */
+
+    /* let webpage occupy whole width of screen */
+    #canvas.fixed {
+        width: auto !important;
+    }
+
+    /* highlight amazon referral link */
+    a[href*=".amazon."][href*="%2D19"],
+    a[href*=".amazon."][href*="%2D20"],
+    a[href*=".amazon."][href*="%2D21"],
+    a[href*=".amazon."][href*="%2D22"],
+    a[href*=".amazon."][href*="%2D23"],
+    a[href*=".amazon."][href*="-19"],
+    a[href*=".amazon."][href*="-20"],
+    a[href*=".amazon."][href*="-21"],
+    a[href*=".amazon."][href*="-22"],
+    a[href*=".amazon."][href*="-23"],
+    a[href*=".amazon."][href*="tag="] {
+        color: yellow !important;
+        font-weight: bold !important;
+        background: salmon !important;
+    }
+}
