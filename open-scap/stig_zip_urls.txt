@@ -1,0 +1,3 @@
+http://iasecontent.disa.mil/stigs/zip/Jul2016/U_Windows_2012_and_2012_R2_DC_V2R5_STIG.zip
+http://iasecontent.disa.mil/stigs/zip/Jul2016/U_RedHat_6_V1R12_STIG.zip
+http://iasecontent.disa.mil/stigs/zip/Apr2016/U_ESXi5_Server_V1R9_STIG.zip
