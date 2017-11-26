@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from PIL import Image
 from StringIO import StringIO
 import mimetypes
+import subprocess
 
 USER_AGENT = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0"
 INITIAL_URL = "https://www.my-site.com"
@@ -31,12 +32,19 @@ for i in range(1,5):
 	if image_element:
 		image_url = image_element["content"]
 		print("[I] %s: Found. Saving image %s ..." % (curr, image_url))
-		image_req = requests.get(image_url)
-		content_type = image_req.headers['content-type']
-		extension = mimetypes.guess_extension(content_type)
-		image_obj = Image.open(StringIO(image_req.content))
-		image_obj.save("keyword" + curr + extension)
+		try:
+			image_req = requests.get(image_url)
+			content_type = image_req.headers['content-type']
+			extension = mimetypes.guess_extension(content_type)
+			image_obj = Image.open(StringIO(image_req.content))
+			image_obj.save("keyword" + curr + extension)
+		except:
+			print("[E] %s: Invalid image URL %s. Saving placeholder file ..." % (curr, image_url))
+			bashCommand = "touch keyword" + curr + ".error.img"
+			process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+			output, error = process.communicate()
 	else:
 		print("[E] %s: Not Found" % (curr))
 
 print("[I] Script completed.")
+
