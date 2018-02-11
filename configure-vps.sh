@@ -5,8 +5,12 @@
 # execute as:
 # root@debian:~# . ./vps-configure.sh
 
+# partially adapted from:
+#  https://gist.github.com/marcy-terui/9460706
+
 SSHPORT=12345
 DROPBOXURL="https://www.dropbox.com/s/???/irssi_config.7z?dl=1"
+KEY_FILENAME="id_ecdsa_vps"
 
 # == add non-privileged user ==
 read -p "Enter user name of new account: " USERNAME
@@ -38,9 +42,9 @@ sed -i "s/.*PermitRootLogin.*/PermitRootLogin no/g" /etc/ssh/sshd_config
 
 runuser -l $USERNAME -c 'mkdir /home/$USERNAME/.ssh'
 runuser -l $USERNAME -c 'chmod 700 /home/$USERNAME/.ssh'
-runuser -l $USERNAME -c 'ssh-keygen -t rsa -b 2048 -N "" -f /home/$USERNAME/.ssh/id_rsa_nfp1'
+runuser -l $USERNAME -c 'ssh-keygen -t ecdsa -b 521 -N "" -f /home/$USERNAME/.ssh/$KEY_FILENAME'
 
-cat /home/$USERNAME/.ssh/id_rsa_nfp1.pub > /home/$USERNAME/.ssh/authorized_keys
+cat /home/$USERNAME/.ssh/$KEY_FILENAME.pub > /home/$USERNAME/.ssh/authorized_keys
 chmod 600 /home/$USERNAME/.ssh/authorized_keys
 chown $USERNAME:$USERNAME /home/$USERNAME/.ssh/authorized_keys
 
