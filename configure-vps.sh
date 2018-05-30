@@ -3,7 +3,7 @@
 
 # run this script as root
 # execute as:
-# root@debian:~# wget https://raw.githubusercontent.com/0x776b7364/misc-scripts/master/configure-vps.sh
+# root@debian:~# wget --no-check-certificate https://raw.githubusercontent.com/0x776b7364/misc-scripts/master/configure-vps.sh
 # root@debian:~# nano configure-vps.sh
 # root@debian:~# . ./vps-configure.sh
 
@@ -24,7 +24,7 @@ apt-get update
 apt-get -y upgrade
 
 # === no custom config files ===
-apt-get install -y lsof locate screen ntpdate p7zip ssh
+apt-get install -y lsof locate screen p7zip ssh
 
 # === has custom config files ===
 apt-get install -y irssi fail2ban
@@ -32,7 +32,6 @@ apt-get install -y irssi fail2ban
 # == TZ settings ==
 echo "[*] Configuring timezone ..."
 timedatectl set-timezone Asia/Singapore
-ntpdate pool.ntp.org
 
 # == sshd settings ==
 echo "[*] Modifying sshd_config ..."
@@ -46,7 +45,7 @@ sed -i "s/.*PermitRootLogin.*/PermitRootLogin no/g" /etc/ssh/sshd_config
 
 runuser -l $USERNAME -c "mkdir /home/$USERNAME/.ssh"
 runuser -l $USERNAME -c "chmod 700 /home/$USERNAME/.ssh"
-runuser -l $USERNAME -c "ssh-keygen -t ecdsa -b 521 -N "" -f /home/$USERNAME/.ssh/$KEY_FILENAME"
+runuser -l $USERNAME -c "ssh-keygen -t ecdsa -b 521 -N '' -f /home/$USERNAME/.ssh/$KEY_FILENAME"
 
 cat /home/$USERNAME/.ssh/$KEY_FILENAME.pub > /home/$USERNAME/.ssh/authorized_keys
 chmod 600 /home/$USERNAME/.ssh/authorized_keys
