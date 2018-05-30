@@ -3,6 +3,8 @@
 
 # run this script as root
 # execute as:
+# root@debian:~# wget https://raw.githubusercontent.com/0x776b7364/misc-scripts/master/configure-vps.sh
+# root@debian:~# nano configure-vps.sh
 # root@debian:~# . ./vps-configure.sh
 
 # partially adapted from:
@@ -21,7 +23,7 @@ apt-get update
 apt-get -y upgrade
 
 # === no custom config files ===
-apt-get install -y nano lsof locate screen ntp p7zip ssh
+apt-get install -y lsof locate screen ntp p7zip ssh
 
 # === has custom config files ===
 apt-get install -y irssi fail2ban
