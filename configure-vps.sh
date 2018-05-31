@@ -81,3 +81,7 @@ service ssh restart
 service fail2ban restart
 
 echo "[*] Done!"
+
+# thereafter, copy /home/$USERNAME/.ssh/$KEY_FILENAME (private key, on VPS) to ~/.ssh/$KEY_FILENAME (on localmachine)
+# set file permissions to 600
+# connect command: ssh -i ~/.ssh/$KEY_FILENAME -p$SSHPORT $USERNAME@ip_address
